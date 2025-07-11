@@ -1,38 +1,259 @@
-.App {
-  text-align: center;
+/* App.css - Centralized Global Styles and Variables */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000000;
+  color: #e0e0e0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 4rem 4rem;
+  width: 100%;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('SFProDisplay-Regular'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Main Color Palette (Minimal & Professional) */
+  --primary-color: #000000;             /* Black background */
+  --secondary-color: #000000;            /* Black for cards/sections */
+  --accent-color: rgb(80, 112, 199);     /* New theme color */
+  --accent-tint: rgba(80, 112, 199, 0.1); /* Lighter tint of the new accent color */
+
+  /* Text Colors */
+  --text-primary: #E6F1FF;               /* White/light text for headings and primary content */
+  --text-secondary: #8892B0;             /* Lighter grey text for secondary content/paragraphs */
+  --text-tertiary: #495670;              /* Even lighter grey text for less important info */
+
+  /* UI Elements */
+  --border-color: #233554;               /* Border color for elements, subtle contrast */
+  --card-bg: #112240;                    /* Background color for cards, consistent with secondary */
+  --card-hover: #1E3A8A;                 /* Card hover state, slightly darker blue */
+  --nav-bg: rgba(10, 25, 47, 0.85);      /* Semi-transparent navbar background */
+  --nav-scrolled: rgba(10, 25, 47, 0.97); /* Navbar when scrolled, almost opaque */
+
+  /* Shadows (Subtle for Minimalism) */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --navy-shadow: rgba(2, 12, 27, 0.7);     /* Specific shadow for certain elements (e.g., image overlay) */
+  --navy-shadow-light: rgba(2, 12, 27, 0.1);
+
+  /* Transitions (Unified) */
+  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Standard ease for all transitions */
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography (Unified) */
+  --font-sans: 'SF Pro Display', 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  /* Layout & Spacing */
+  --header-height: 80px;               /* Consistent header height */
+  --max-width: 1200px;                 /* Max content width */
+  --border-radius: 4px;                /* Standard border-radius for all elements */
+  --section-padding-y: 120px;          /* Consistent vertical padding for major sections */
+  --section-spacing: 6rem;             /* Spacing between main content blocks */
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height); /* Smooth scroll accounting for fixed header */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure consistent box model */
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary); /* Default body text color */
+  background-color: var(--primary-color); /* Default background color */
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem; /* Consistent horizontal padding */
+}
+
+section {
+  min-height: 100vh; /* Make sections take full viewport height by default */
+  padding: var(--section-padding-y) 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+#leadership {
+  padding-top: 3rem; /* Reduced from default */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  background-color: var(--primary-color); /* Ensure sections inherit primary background */
+  color: var(--text-primary); /* Ensure sections inherit primary text color */
 }
 
-.App-link {
-  color: #61dafb;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+p {
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--accent-color);
+  filter: brightness(1.2); /* Subtle hover effect */
+  text-decoration: underline; /* Minimalist underline on hover */
+}
+
+/* General Section Title Styling (for consistency) */
+.section-title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0 40px; /* Consistent margin for titles */
+  width: 100%;
+  font-size: clamp(26px, 5vw, 32px); /* Responsive font size */
+  white-space: nowrap;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 5px;
+  width: 300px; /* Consistent line width */
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--accent-color);
+  opacity: 0.5; /* Subtle line */
+}
+
+.section-number {
+  margin-right: 10px;
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 80px;
+    --section-spacing: 4rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  html {
+    scroll-padding-top: 80px;
   }
+  
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+  }
+  
+  .card { /* Assuming a general .card class for shared styles */
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: 60px;
+    --section-spacing: 3.5rem;
+  }
+  
+  .container {
+    padding: 0 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.6rem; }
+  h4 { font-size: 1.3rem; }
+}
+
+.highlight-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.highlight-text span {
+  font-weight: 600;
+  font-size: 1.5rem;
 }

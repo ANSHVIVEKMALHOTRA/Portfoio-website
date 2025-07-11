@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* index.css - Updated to use centralized variables and page background */
+/* Remove conflicting :root variables as they are now in App.css */
+:root {
+  /* Page Specific Background - remains here as it's a unique page-level effect */
+  --page-background: radial-gradient(circle at 15% 50%, transparent 50%), /* Use accent-color tint */
+                     radial-gradient(circle at 85% 50%, transparent 50%), /* Keep a subtle pink for contrast */
+                     var(--primary-color); /* Base dark color from centralized variables */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* Inherited from App.css for font-family, color, etc. */
+  background: var(--page-background); /* Use the new dynamic page background */
+  background-attachment: fixed; /* Keep background fixed while scrolling */
+  /* Margin and padding handled by App.css base styles */
+  /* font-smoothing handled by App.css base styles */
+}
+
+/* Scrollbar styles - remain unique to index.css */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-color); /* Use secondary color for track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.2); /* Subtle hover effect */
+}
+
+/* Global Container Styling (now defined in App.css, remove if duplicated) */
+/* .container styles are in App.css now */
+
+/* Leadership cards container - remains here */
+.leadership-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; /* Adjust as needed */
+  padding-top: 1.5rem; /* Space from the title */
+}
+
+/* Background animation */
+body {
+  background-size: 200% 200%; /* Make background larger for panning */
+  animation: backgroundPan 30s linear infinite alternate; /* Slower, subtle animation */
+}
+
+@keyframes backgroundPan {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }

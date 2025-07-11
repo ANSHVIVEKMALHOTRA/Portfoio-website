@@ -1,0 +1,226 @@
+/* SkillsExperience.css - Updated for consistency */
+
+/* --- General Section Wrapper for Skills & Experience --- */
+.skills-experience-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-spacing); /* Use consistent section spacing */
+  max-width: 900px; /* Keep specific max-width for content */
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--section-padding-y) 1.5rem; /* Use consistent padding */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Ensure no horizontal scroll */
+.skills-experience-section > * {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* --- Removed specific h2 styling from here, now global in App.css --- */
+/* (Commented out as per previous analysis, global .section-title will apply) */
+/*
+.skills-container h2,
+.experience-container h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.skills-container h2::after,
+.experience-container h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+*/
+
+/* --- Skills Section --- */
+.skills-container {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skill-category {
+  margin-bottom: 3rem; /* Spacing between categories */
+}
+
+.skill-category h3 {
+  color: var(--accent-color); /* Category titles in accent color */
+  font-size: 1.5rem; /* Larger category title */
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.skill-category h3::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0 2rem;
+  width: 100%;
+}
+
+.skill-tag {
+  background-color: var(--secondary-color); /* Use secondary color for tag background */
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius); /* Consistent border-radius */
+  border: 1px solid var(--border-color); /* Consistent border */
+  transition: var(--transition); /* Consistent transition */
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background-color: var(--accent-tint); /* Accent tint on hover */
+  color: var(--accent-color); /* Accent color text on hover */
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* --- Experience Section --- */
+.experience-container {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.experience-item {
+  position: relative;
+  padding-left: 50px; /* Space for the timeline dot/line */
+  margin-bottom: 3rem; /* Spacing between experience items */
+  border-left: 2px solid var(--border-color); /* Timeline line */
+  transition: var(--transition);
+}
+
+.experience-item:last-child {
+  margin-bottom: 0; /* No margin after the last item */
+}
+
+.experience-item-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.experience-item h3 {
+  color: var(--accent-color); /* Company name in accent color */
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.experience-item .role {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item .duration {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-tertiary); /* Tertiary text for duration */
+}
+
+.experience-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.experience-item ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.experience-item ul li::before {
+  content: '->'; /* Custom bullet point */
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+
+/* Media queries for responsiveness - General media queries handled by App.css */
+@media (max-width: 768px) {
+  .skills-experience-section {
+    gap: var(--section-spacing);
+  }
+
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+  .skill-category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .skill-category h3::before {
+    width: 10px;
+    height: 10px;
+  }
+  .skill-tags {
+    gap: 0.6rem;
+  }
+  .skill-tag {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .experience-item {
+    padding-left: 40px;
+    margin-bottom: 2.5rem;
+  }
+
+  .experience-item-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .experience-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .experience-item .role {
+    font-size: 1rem;
+  }
+
+  .experience-item .duration {
+    font-size: 0.8rem;
+  }
+
+  .experience-item ul li {
+    font-size: 0.9rem;
+  }
+}

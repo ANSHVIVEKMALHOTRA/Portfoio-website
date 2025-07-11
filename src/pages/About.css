@@ -1,0 +1,129 @@
+/* About.css - Updated for consistency */
+/* About Section */
+.about-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns:  2fr;
+  gap: 50px;
+  align-items: flex-start;
+  margin-top: 2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.about-text {
+  color: var(--text-secondary);
+}
+
+.about-text p {
+  margin-bottom: 20px; /* Keep specific margin */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.about-text p:first-of-type {
+  margin-top: 0;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 0 10px;
+  padding: 0;
+  margin: 20px 0 0 0;
+  overflow: hidden;
+  list-style: none;
+  position: relative;
+  z-index: 2;
+}
+
+.skills-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.skills-list li::before {
+  content: '▹'; /* Consistent bullet point style */
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.about-image {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius); /* Use consistent border-radius */
+  background-color: var(--accent-color); /* Use accent color for background */
+  margin-left: 20px; /* Keep specific margin */
+  transition: var(--transition); /* Add transition for hover effect */
+}
+
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background-color: var(--navy-shadow); /* Use navy-shadow for overlay */
+  mix-blend-mode: screen;
+  border-radius: var(--border-radius); /* Use consistent border-radius */
+}
+
+.image-wrapper:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: var(--shadow-md); /* Apply consistent shadow */
+}
+
+.image-placeholder { /* This class seems redundant if image-wrapper is used for image styling */
+  position: relative;
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.image-placeholder::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  top: 20px; /* Keep specific position */
+  left: 20px; /* Keep specific position */
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.image-wrapper:hover .image-placeholder::before {
+  top: 10px; /* Adjust position on hover */
+  left: 10px; /* Adjust position on hover */
+}
+
+/* Responsive Design will be handled by App.css for general media queries */

@@ -1,0 +1,166 @@
+/* src/components/Footer.css - Modern & Elegant Footer */
+
+:root {
+  --primary-bg-color: #000000; /* Black background */
+  --text-primary-color: #FFFFFF; /* White text color */
+  --text-secondary-color: #CCCCCC; /* Light gray for secondary text */
+  --accent-color: #4d7cff; /* Brighter, more vibrant blue */
+  --accent-hover: #6b91ff; /* Even brighter for hover states */
+}
+
+.main-footer {
+  background: var(--primary-bg-color);
+  color: var(--text-primary-color);
+  padding: 3rem 2rem; /* Increased top/bottom padding for more vertical space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px; /* Increased max-width for wider layout */
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for better distribution */
+  gap: 40px; /* Increased gap for more breathing room */
+  margin-bottom: 2rem; /* More space between content and bottom section */
+  text-align: left;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-section:first-child {
+  grid-column: span 1; /* Retain for specific styling if needed, otherwise can be removed */
+}
+
+.footer-name {
+  font-size: 1.6rem; /* Slightly larger for prominence */
+  font-weight: 700;
+  margin-bottom: 0.75rem; /* More space below name */
+  color: var(--text-primary-color);
+}
+
+.footer-description {
+  font-size: 1.05rem; /* Slightly larger and more readable */
+  line-height: 1.7;
+  color: var(--text-secondary-color);
+  margin-bottom: 1rem;
+  max-width: 400px; /* Increased max-width for description */
+}
+
+.footer-heading {
+  font-size: 1.15rem; /* Slightly larger and more impactful */
+  font-weight: 600;
+  margin-bottom: 1rem; /* More space below heading */
+  color: var(--text-primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.8px; /* More prominent letter spacing */
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  list-style: none;
+  gap: 0.8rem; /* Slightly smaller gap for tighter list */
+}
+
+.footer-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smoother transition */
+  display: inline-block;
+  position: relative; /* For the underline effect */
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  transform: translateX(5px);
+}
+
+/* Underline effect on hover for links */
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  display: block;
+  margin-top: 2px;
+  right: 0;
+  background: var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+  left: 0;
+  background: var(--accent-color);
+}
+
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  padding-top: 1.5rem; /* More space above the bottom line */
+  border-top: 1px solid rgba(100, 255, 218, 0.15); /* Slightly more opaque border */
+  color: var(--text-secondary-color);
+  font-size: 0.95rem; /* Slightly larger font */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Added 'Inter' for a modern look, adjust as needed */
+}
+
+.footer-bottom p {
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    text-align: center; /* Center align content for better mobile display */
+  }
+
+  .footer-section {
+    align-items: center; /* Center align items within sections */
+  }
+
+  .footer-links {
+    align-items: center; /* Center align links */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-footer {
+    padding: 2.5rem 1rem; /* Adjust padding for very small screens */
+  }
+
+  .footer-name {
+    font-size: 1.5rem;
+  }
+
+  .footer-description {
+    font-size: 0.95rem;
+  }
+
+  .footer-heading {
+    font-size: 1.05rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+  }
+}

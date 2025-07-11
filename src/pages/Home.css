@@ -1,0 +1,142 @@
+/* Reset font styles if needed */
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #000000;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.hero-animation {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+  margin-top: 0;
+  transform: scale(2);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 1;
+  gap: 6rem;
+}
+
+.hero-text {
+  max-width: 1000px;
+  flex: 1;
+}
+
+.greeting {
+  color: #4d7cff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.highlight-name {
+  color: #4d7cff;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #4d7cff;
+  min-height: 2.5rem;
+}
+
+.typewriter-text::after {
+  content: '|';
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #4d7cff;
+  color: #4d7cff;
+  background-color: transparent;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #4d7cff;
+  color: #ffffff;
+}
+
+/* Animation Area */
+.hero-animation {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-animation {
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-cta {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,107 @@
+/* Leadership.css */
+.leadership-activities-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.leadership-column,
+.activities-column {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.column-title {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.column-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.leadership-card {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.leadership-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.leadership-card h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.leadership-card .organization {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.leadership-card .date {
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.leadership-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.leadership-card .details {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0.5rem 0 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .leadership-activities-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .leadership-card {
+    padding: 1.25rem;
+  }
+  
+  .column-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+}

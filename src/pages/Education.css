@@ -1,0 +1,136 @@
+/* Education.css - Updated for consistent left alignment */
+
+.education-section {
+  padding: 4rem 2rem;
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Section Title - Global styles now in App.css, so simplify this */
+/*
+.section-title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0 40px;
+  width: 100%;
+  font-size: clamp(26px, 5vw, 32px);
+  white-space: nowrap;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 5px;
+  width: 300px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--accent-color);
+}
+
+.section-number {
+  margin-right: 10px;
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
+}
+*/
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Consistent gap between education items */
+  position: relative;
+  max-width: 700px; /* Maintain specific max-width */
+  margin: 0 auto;
+  padding-left: 20px; /* For timeline effect */
+}
+
+.education-item {
+  position: relative;
+  padding: 25px; /* Consistent padding */
+  background-color: var(--secondary-color); /* Use secondary color for card background */
+  border-radius: var(--border-radius); /* Consistent border-radius */
+  transition: var(--transition); /* Consistent transition */
+  box-shadow: var(--shadow-sm); /* Subtle shadow */
+  border: 1px solid var(--border-color); /* Consistent border */
+}
+
+.education-item:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: var(--shadow-md); /* More pronounced shadow on hover */
+  border-color: var(--accent-color); /* Accent border on hover */
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  top: 32px; /* Position for timeline dot */
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-color); /* Accent color for dot */
+  transition: var(--transition);
+  z-index: 1; /* Ensure dot is above background */
+}
+
+.education-item:hover::before {
+  transform: scale(1.1); /* Slight scale on hover for dot */
+  box-shadow: 0 0 0 3px var(--accent-tint); /* Glow effect on hover */
+}
+
+.education-content h3 {
+  color: var(--text-primary);
+  font-size: 22px; /* Keep specific font size */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.education-content .institution {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.education-content .duration {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* Responsive Design - General media queries handled by App.css */
+@media (max-width: 768px) {
+  .education-container {
+    padding-left: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .education-item::before {
+    left: -5px; /* Adjust dot position */
+  }
+}

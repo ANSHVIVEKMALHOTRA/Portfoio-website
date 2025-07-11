@@ -1,0 +1,390 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('SFProDisplay-Regular'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2') format('woff2'),
+       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*--- Variables ---*/
+:root {
+  --navbar-height: 70px;
+  --transition-speed: 0.3s;
+  --transition-ease: ease-in-out;
+  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/*--- Base Styles ---*/
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height); /* Use variable for consistency */
+}
+
+/*--- Navbar Container ---*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: var(--nav-bg, #fff);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-bottom: 1px solid var(--border-color, #eee);
+  transition: all var(--transition-speed) var(--transition-ease);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+/*--- Navbar Scrolled State ---*/
+.navbar.scrolled {
+  background-color: var(--nav-scrolled, rgba(255, 255, 255, 0.9));
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+  padding: 0.8rem 0; /* Slightly reduced padding */
+  border-bottom-color: var(--accent-color, #007aff); /* Subtle change */
+}
+
+/*--- Navbar Menu Open State (Mobile) ---*/
+.navbar.menu-open {
+  background-color: rgba(18, 18, 18, 0.98);
+  height: 100vh;
+  overflow-y: auto;
+  padding-top: 1rem; /* Adjust as needed for open menu */
+  padding-bottom: 1rem; /* Adjust as needed for open menu */
+}
+
+/*--- Navbar Inner Container ---*/
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+/*--- Navbar Brand (Logo/Title) ---*/
+.navbar-brand {
+  color: var(--accent-color, #007aff);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-ease), text-shadow var(--transition-speed) var(--transition-ease);
+  position: relative;
+  z-index: 1001;
+}
+
+.navbar-brand:hover {
+  color: #00e9ff; /* Specific hover color */
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.7);
+}
+
+/*--- Mobile Menu Button ---*/
+.mobile-menu-button {
+  display: none; /* Hidden by default, shown in media queries */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  position: relative;
+  z-index: 1001;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.hamburger {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--accent-color, #007aff);
+  position: relative;
+  transition: all var(--transition-speed) var(--transition-ease);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent-color, #007aff);
+  left: 0;
+  transition: all var(--transition-speed) var(--transition-ease);
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+}
+
+/*--- Navigation Links ---*/
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.4s var(--transition-ease); /* Slightly different transition for overall nav */
+}
+
+.nav-item {
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link {
+  color: var(--text-primary, #333); /* Ensure consistency for default link color */
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  transition: color var(--transition-speed) var(--transition-ease);
+}
+
+.nav-link:hover {
+  color: var(--accent-color, #007aff);
+}
+
+.nav-link.active {
+  color: var(--accent-color, #007aff);
+  font-weight: 600; /* Bolder for active state */
+}
+
+/* Active indicator underline */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color, #007aff);
+  transition: width var(--transition-speed) var(--transition-ease);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Remove redundant .active-indicator rules as ::after handles it */
+.nav-link .active-indicator {
+  display: none; /* Redundant with ::after, keep for specific cases if needed */
+}
+
+/*--- Resume Link ---*/
+.resume-link {
+  background-color: transparent;
+  border: 1px solid var(--accent-color, #007aff);
+  border-radius: var(--border-radius, 6px);
+  padding: 0.5rem 1.25rem;
+  margin-left: 1rem;
+  color: var(--accent-color, #007aff);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace); /* Assume font-mono is defined or add fallback */
+  font-size: 0.9rem;
+  transition: all var(--transition-speed) var(--transition-ease);
+  text-decoration: none; /* Ensure no underline */
+}
+
+.resume-link:hover {
+  background-color: var(--accent-tint, rgba(0, 122, 255, 0.1));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.resume-link:active {
+  transform: translateY(0);
+}
+
+.resume-link .resume-text {
+  position: relative;
+  top: -1px; /* Fine-tune alignment */
+}
+
+.resume-link .resume-icon {
+  font-size: 0.9em;
+  position: relative;
+  top: 1px;
+  transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.resume-link:hover .resume-icon {
+  transform: translate(2px, -2px);
+}
+
+.resume-link::after {
+  display: none; /* Explicitly remove the pseudo-element underline */
+}
+
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .navbar-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--card-bg, #f8f8f8);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 6rem 2rem 2rem; /* Adjusted padding for better mobile layout */
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar.menu-open .navbar-nav {
+    right: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0; /* Simpler padding for mobile */
+    font-size: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* To push indicator to the right if re-enabled */
+    align-items: center;
+    border-radius: 4px;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.03); /* Subtle hover for dark menu */
+  }
+
+  .nav-link .active-indicator {
+    display: none; /* Hide active indicator for mobile nav */
+  }
+
+  .resume-link {
+    margin: 1.5rem 0 0; /* Centered and spaced */
+    padding: 0.75rem 1.5rem;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .resume-link:hover {
+    background-color: var(--accent-tint, rgba(0, 173, 181, 0.1));
+  }
+
+  /* Staggered animation for menu items (refined) */
+  .navbar.menu-open .nav-item {
+    opacity: 0; /* Start hidden */
+    transform: translateX(20px); /* Start slightly off-screen */
+    transition: opacity 0.3s var(--transition-ease), transform 0.3s var(--transition-ease);
+  }
+
+  .navbar.menu-open .nav-item:nth-child(1) { transition-delay: 0.1s; }
+  .navbar.menu-open .nav-item:nth-child(2) { transition-delay: 0.15s; }
+  .navbar.menu-open .nav-item:nth-child(3) { transition-delay: 0.2s; }
+  .navbar.menu-open .nav-item:nth-child(4) { transition-delay: 0.25s; }
+  .navbar.menu-open .nav-item:nth-child(5) { transition-delay: 0.3s; }
+  .navbar.menu-open .nav-item:nth-child(6) { transition-delay: 0.35s; }
+  .navbar.menu-open .nav-item:last-child { transition-delay: 0.4s; }
+
+  .navbar.menu-open .nav-item {
+    opacity: 1; /* Fade in */
+    transform: translateX(0); /* Slide into place */
+  }
+
+  /* Adjust font sizes for mobile to be slightly larger */
+  .nav-link {
+    font-size: 1.3rem; /* Slightly smaller than previous 1.5rem, but still good */
+    padding: 0.8rem 1.5rem;
+  }
+
+  .resume-link {
+    margin-top: 1.5rem;
+    font-size: 1.15rem; /* Consistent with other text, not too large */
+    padding: 0.8rem 1.8rem !important; /* !important to override potential other rules */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.4rem; /* Slightly smaller for very small screens */
+  }
+
+  .navbar-container {
+    padding: 0 0.8rem; /* Reduced padding on very small screens */
+  }
+
+  .nav-link {
+    font-size: 1.2rem; /* Further adjustment for very small screens */
+  }
+}
