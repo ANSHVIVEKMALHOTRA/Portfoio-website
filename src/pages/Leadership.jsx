@@ -36,19 +36,16 @@ const leadershipRoles = [
 const Leadership = () => (
   <section id="leadership" className="section">
     <div className="container">
-      <h2 className="section-title">Leadership & Activities</h2>
       <div className="cards-container">
-        <div className="cards-stack">
-          {leadershipRoles.map((role, index) => (
-            <div key={index} className="leadership-card">
-              <h3>{role.title}</h3>
-              <p className="organization">{role.organization}</p>
-              <p className="date">{role.period}</p>
-              <p className="description">{role.description}</p>
-              {role.details && <p className="details">{role.details}</p>}
-            </div>
-          ))}
-        </div>
+        {leadershipRoles.map((role, index) => (
+          <div key={index} className="leadership-card">
+            <h3>{role.title}</h3>
+            <p className="organization">{role.organization}</p>
+            <p className="date">{role.period}</p>
+            <p className="description">{role.description}</p>
+            {role.details && <p className="details">{role.details}</p>}
+          </div>
+        ))}
       </div>
     </div>
   </section>

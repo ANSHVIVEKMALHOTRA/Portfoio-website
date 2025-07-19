@@ -1,7 +1,7 @@
 /* Education.css - Updated for consistent left alignment */
 
 .education-section {
-  padding: 4rem 2rem;
+  padding: 4rem 0; /* Removed horizontal padding, rely on App.css section */
   max-width: 100%;
   margin: 0;
   position: relative;
@@ -17,46 +17,12 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0; /* Removed padding here, rely on App.css .container */
   text-align: left;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Section Title - Global styles now in App.css, so simplify this */
-/*
-.section-title {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 10px 0 40px;
-  width: 100%;
-  font-size: clamp(26px, 5vw, 32px);
-  white-space: nowrap;
-  color: var(--text-primary);
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  position: relative;
-  top: 5px;
-  width: 300px;
-  height: 1px;
-  margin-left: 20px;
-  background-color: var(--accent-color);
-}
-
-.section-number {
-  margin-right: 10px;
-  color: var(--accent-color);
-  font-family: var(--font-mono);
-  font-size: clamp(16px, 3vw, 20px);
-  font-weight: 400;
-}
-*/
 
 .education-container {
   display: flex;
@@ -65,7 +31,7 @@
   position: relative;
   max-width: 700px; /* Maintain specific max-width */
   margin: 0 auto;
-  padding-left: 20px; /* For timeline effect */
+  padding-left: 20px; /* For timeline effect, if desired, otherwise remove */
 }
 
 .education-item {

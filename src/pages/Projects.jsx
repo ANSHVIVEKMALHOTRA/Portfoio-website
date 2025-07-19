@@ -4,17 +4,13 @@ import { FiGithub, FiExternalLink, FiFolder } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import './Projects.css';
 
-const ProjectCard = ({ title, description, techStack, githubLink, liveLink, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ProjectCard = ({ title, description, githubLink, liveLink, index }) => {
   return (
     <motion.div 
       className="project-card"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="project-header">
         <div className="project-folder">
@@ -22,38 +18,22 @@ const ProjectCard = ({ title, description, techStack, githubLink, liveLink, inde
         </div>
         <div className="project-links">
           {githubLink && (
-            <a 
-              href={githubLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="GitHub Repository"
-            >
-              <FiGithub className="link-icon" />
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+              <FiGithub className="project-link-icon" />
             </a>
           )}
           {liveLink && (
-            <a 
-              href={liveLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Live Demo"
-            >
-              <FiExternalLink className="link-icon" />
+            <a href={liveLink} target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+              <FiExternalLink className="project-link-icon" />
             </a>
           )}
         </div>
       </div>
-      
+
       <h3 className="project-title">{title}</h3>
-      
+
       <div className="project-description">
         <p>{description}</p>
-      </div>
-      
-      <div className="project-tech">
-        {techStack.map((tech, i) => (
-          <span key={i} className="tech-tag">{tech}</span>
-        ))}
       </div>
     </motion.div>
   );
@@ -63,66 +43,84 @@ const Projects = () => {
   const [projects] = useState([
     {
       title: 'ISTE App – Club Companion Platform',
-      description: 'Developed a cross-platform mobile application using Flutter and Firebase, facilitating seamless communication, event management, and resource sharing within the ISTE NITK student club.',
-      techStack: ['Flutter', 'Firebase', 'Dart', 'Node.js'],
+      description: 'Mentored the development of a cross-platform mobile app for ISTE NITK members with Firebase for real-time sync, secure authentication, and Flutter-based responsive UI. Focused on performance optimization, modular code, and SIG-specific dashboards.',
       githubLink: 'https://github.com/shreyasachar/iste-app',
       liveLink: ''
     },
     {
-      title: 'Distributed File Storage',
-      description: 'Implemented a robust distributed file storage system using Python, ensuring data redundancy and high availability with consistent hashing for efficient data distribution.',
-      techStack: ['Python', 'Socket Programming', 'Hashing'],
-      githubLink: 'https://github.com/shreyasachar/distributed-file-system',
+      title: 'Readline Stealer Attack – InfoSec Research Project',
+      description: 'Demonstrated vulnerabilities in Linux shell history files using malicious library injections. Captured and analyzed user commands to explore attack vectors in terminal environments, highlighting the need for improved input sanitization and secure memory handling.',
+      githubLink: '',
+      liveLink: 'https://www.malware-traffic-analysis.net/2024/10/23/index.html'
+    },
+    {
+      title: 'KMC Mangalore App – Tinnitus Therapy Support',
+      description: 'Led development of a cross-platform app to support Tailor-Made Notched Music Training (TMNMT) for tinnitus therapy. Enabled secure data management, patient monitoring, and real-time analytics for doctors using Flutter and Firebase.',
+      githubLink: '',
       liveLink: ''
     },
     {
-      title: 'Portfolio Website',
-      description: 'Designed and developed a personal portfolio website with a responsive design and interactive elements to showcase projects, skills, and experience.',
-      techStack: ['React', 'JavaScript', 'CSS3', 'Figma'],
-      githubLink: 'https://github.com/shreyasachar/portfolio',
-      liveLink: 'https://www.shreyasachar.com'
-    },
-    {
-      title: 'Predictive Maintenance System',
-      description: 'Built an end-to-end predictive maintenance solution with machine learning models to forecast equipment failures and a Flask-based web interface for monitoring.',
-      techStack: ['Python', 'Flask', 'Scikit-learn', 'Pandas'],
-      githubLink: 'https://github.com/shreyasachar/predictive-maintenance',
+      title: 'Database Systems Course Registration Portal',
+      description: 'Developed a course registration web app with modules for students and admins, using MySQL for backend data handling. Features include seat allotment, scheduling conflict checks, and role-based access.',
+      githubLink: 'https://github.com/ANSHVIVEKMALHOTRA/Database-systems',
       liveLink: ''
     },
     {
-      title: 'HeatWatch',
-      description: 'Developed a digital logic circuit for temperature monitoring using Logisim, focusing on energy efficiency and logic optimization.',
-      techStack: ['Logisim', 'Digital Logic', 'Hardware Design'],
-      githubLink: 'https://github.com/your-repo/heatwatch',
+      title: 'Dynamic ARP Inspection for Network Security',
+      description: 'Implemented a lightweight system to validate ARP packets using MAC mappings, mitigating ARP spoofing threats in local networks. Designed to run on resource-constrained devices like edge routers.',
+      githubLink: 'https://github.com/ANSHVIVEKMALHOTRA/Dynamic-ARP-Inspection',
+      liveLink: ''
+    },
+    {
+      title: 'ISTEapp-UX/UI Design',
+      description: 'Designed a mobile app prototype for ISTE NITK with wireframes and flows using Figma. Focused on accessibility, SIG updates, announcements, and internal collaboration tools.',
+      githubLink: '',
+      liveLink: ''
+    },
+    {
+      title: 'ISTEcode – Online Coding Platform',
+      description: 'Built a full-stack platform for coding practice and contests for ISTE NITK. Integrated real-time leaderboards, submission APIs, and performance tracking.',
+      githubLink: 'https://github.com/shivamt2025/ISTECode',
+      liveLink: ''
+    },
+    {
+      title: 'Operating System Simulator',
+      description: 'Created a web simulator for OS concepts like scheduling and memory management with animations and interactive logs to support academic use.',
+      githubLink: 'https://github.com/ANSHVIVEKMALHOTRA/OperatingSystemsimulator-',
+      liveLink: ''
+    },
+    {
+      title: 'Multi-UAV Load-Balanced MEC for IoT',
+      description: 'Simulated UAV-based edge servers for IoT using Differential Evolution algorithms to optimize latency, bandwidth, and energy constraints.',
+      githubLink: 'https://github.com/aniket-mtr/Load-Balanced-Multi-UAV-Edge-Computing',
+      liveLink: ''
+    },
+    {
+      title: 'Telephone Directory App – NITK',
+      description: 'Built the official telephone directory app for NITK with categorized listings, search, and MySQL backend for data integrity. Cross-platform support for Android and iOS.',
+      githubLink: 'https://github.com/ANSHVIVEKMALHOTRA/telephoneapp',
+      liveLink: 'https://telephone.nitk.ac.in/#'
+    },
+    {
+      title: 'HEATWATCH – Temperature Monitoring System',
+      description: 'Engineered a Logisim-based hardware model to measure average temperature using logic gates without memory components. Deployed the design using ICs on a physical PCB.',
+      githubLink: 'https://github.com/ANSHVIVEKMALHOTRA/Miniproject-HEATWATCH',
       liveLink: ''
     },
     {
       title: 'Handwritten Character Recognition',
-      description: 'Created a CNN model for recognizing handwritten characters in real-time using computer vision and deep learning techniques.',
-      techStack: ['Python', 'TensorFlow', 'OpenCV', 'CNN'],
-      githubLink: 'https://github.com/your-repo/handwritten-ocr',
+      description: 'Built a real-time handwritten character detection system using CNN and OpenCV. Trained on custom datasets and optimized for OCR use cases.',
+      githubLink: 'https://github.com/karandomguy/HCR',
       liveLink: ''
-    },
+    }
   ]);
 
   return (
     <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">
-          <span>Projects</span>
-        </h2>
-        
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              index={index}
-              title={project.title}
-              description={project.description}
-              techStack={project.techStack}
-              githubLink={project.githubLink}
-              liveLink={project.liveLink}
-            />
+            <ProjectCard key={index} index={index} {...project} />
           ))}
         </div>
       </div>

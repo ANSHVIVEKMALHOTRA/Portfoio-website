@@ -1,193 +1,118 @@
-/* Projects.css - Updated for consistency */
+/* Projects.css - Clean Square UI */
 
-/* Projects Section */
 .projects-section {
-  padding: 4rem 2rem;
-  max-width: 100%;
-  margin: 0;
-  position: relative;
-  text-align: left;
+  padding: 4rem 0; /* Changed to 0 horizontal padding, rely on App.css section and container */
   width: 100%;
+  background-color: var(--bg-primary);
   box-sizing: border-box;
 }
-
-/* Section Title - Global styles now in App.css, simplify this */
-/*
-.section-title {
-  display: flex;
-  align-items: center;
-  margin: 0 0 60px 0;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  position: relative;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.section-number {
-  color: var(--accent-color);
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  margin-right: 10px;
-}
-*/
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  margin: 50px auto 0;
-  position: relative;
-  max-width: 1400px;
-  padding: 0 2rem;
-  box-sizing: border-box;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 5rem;
+  max-width: 100%; /* Changed to 100% to use full width */
+  margin: 0 auto;
 }
 
 .project-card {
-  background: var(--card-bg); /* Use consistent card background */
-  border-radius: var(--border-radius); /* Consistent border-radius */
-  padding: 2rem;
-  transition: var(--transition); /* Consistent transition */
-  position: relative;
-  z-index: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border-color); /* Consistent border */
-  box-shadow: var(--shadow-sm); /* Subtle shadow */
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px); /* Consistent lift on hover */
-  box-shadow: var(--shadow-md); /* Consistent shadow on hover */
-  border-color: var(--accent-color); /* Accent border on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.75rem;
-}
-
-.project-folder {
-  color: var(--accent-color);
+  margin-bottom: 1.2rem;
 }
 
 .folder-icon {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--accent-color);
-  transition: var(--transition);
 }
 
 .project-links {
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 
 .project-link-icon {
+  font-size: 1.2rem;
   color: var(--text-secondary);
-  font-size: 1.25rem;
-  transition: var(--transition);
+  transition: color 0.2s ease;
 }
 
 .project-link-icon:hover {
   color: var(--accent-color);
-  transform: translateY(-2px);
 }
 
 .project-title {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  text-decoration: none;
+  font-size: 1.3rem;
   font-weight: 600;
-  transition: var(--transition);
-}
-
-.project-title:hover {
-  color: var(--accent-color);
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
 }
 
 .project-description {
-  font-size: 1rem;
   color: var(--text-secondary);
+  font-size: 0.95rem;
+  flex-grow: 1;
   line-height: 1.5;
-  margin-bottom: 1.5rem;
-  flex-grow: 1; /* Allow description to take available space */
+  margin-bottom: 1rem;
 }
 
-.project-tech-list {
+.project-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin-top: auto; /* Push tech list to the bottom */
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-.project-tech-list li {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-tertiary); /* Use tertiary text color for tech tags */
-  background-color: var(--secondary-color); /* Use secondary color for tech tag background */
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
-}
-
-.project-tech-list li:hover {
+.technology-tag {
+  background-color: var(--secondary-color);
   color: var(--accent-color);
-  background: var(--accent-tint);
-  transform: translateY(-2px);
-}
-
-.more-projects {
-  margin: 4rem 0 0 0;
-  text-align: center;
-}
-
-.btn-outline { /* Ensure this uses the global btn-outline style from Home.css/App.css */
-  color: var(--accent-color);
-  background: transparent;
-  border: 1px solid var(--accent-color);
-  border-radius: var(--border-radius);
-  padding: 12px 28px;
-  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
   font-family: var(--font-mono);
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  display: inline-block;
+  white-space: nowrap;
 }
 
-.btn-outline:hover {
-  background: var(--accent-tint);
-  transform: translateY(-2px);
-}
-
-/* Responsive Design - General media queries handled by App.css */
-@media (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-}
-
+/* Responsive adjustments for projects grid */
 @media (max-width: 768px) {
   .projects-section {
-    padding: var(--section-padding-y) 0;
+    padding: 3rem 0; /* Adjust vertical padding for mobile */
   }
-  
-  .section-title { /* This will be overridden by App.css global section-title, keeping for reference */
-    font-size: 1.75rem;
-    margin-bottom: 3rem;
-  }
-  
+
   .projects-grid {
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 3rem; /* Reduced gap for mobile */
+  }
+
+  .project-card {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
   }
 }

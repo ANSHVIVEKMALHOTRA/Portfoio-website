@@ -4,13 +4,13 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0; /* Changed to 0 horizontal padding, rely on App.css section and container */
 }
 
 .leadership-column,
 .activities-column {
   flex: 1;
-  min-width: 0; /* Prevents flex items from overflowing */
+  min-width: 0;
 }
 
 .column-title {
@@ -31,77 +31,175 @@
   background-color: var(--accent-color);
 }
 
-.cards-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* ✅ Updated Grid Layout for Cards */
+.cards-container {
+  /* This will attempt to fit 4 columns on larger screens,
+     allowing each card to be at least 250px wide. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .leadership-card {
-  background: var(--bg-secondary);
-  border-radius: 10px;
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 1px solid var(--border-color);
+  /* Retained radial gradient background for depth */
+  background: radial-gradient(circle at top left, var(--bg-secondary) 0%, var(--bg-primary) 150%);
+  border-radius: 18px; /* Slightly more rounded */
+  padding: 2rem; /* Increased padding for more breathing room */
+  border: 1px solid rgba(var(--accent-rgb), 0.15); /* Even more subtle initial border */
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Slower, more impactful transition */
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12); /* Slightly stronger initial shadow */
+  overflow: hidden; /* Ensures content stays within rounded corners */
+  position: relative; /* For potential pseudo-elements or absolute positioning */
 }
 
 .leadership-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-color: var(--accent-color);
+  transform: translateY(-10px) scale(1.03); /* More pronounced lift and scale */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Stronger, wider shadow on hover */
+  border-color: var(--accent-color); /* Vibrant border on hover */
+  /* Added a subtle glow effect on hover */
+  -webkit-box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.4);
+  -moz-box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.4);
+  box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.4);
 }
 
-.leadership-card h4 {
+.leadership-card h3 {
   color: var(--text-primary);
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem 0;
-  font-weight: 600;
+  font-size: 1.4rem; /* Larger title for emphasis */
+  margin: 0 0 0.8rem 0; /* More space below title */
+  font-weight: 700; /* Bolder title */
+  position: relative; /* For potential underline or icon */
+  padding-bottom: 0.3rem; /* Space for a subtle underline */
 }
+
+/* Optional: Subtle underline for the title on hover */
+.leadership-card h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease-out;
+}
+
+.leadership-card:hover h3::after {
+  width: 50%; /* Expands on hover */
+}
+
 
 .leadership-card .organization {
   color: var(--accent-color);
-  font-size: 0.95rem;
-  margin: 0 0 0.5rem 0;
-  font-weight: 500;
+  font-size: 1.1rem; /* More prominent organization text */
+  margin: 0 0 0.4rem 0; /* Slightly less space than title */
+  font-weight: 600; /* Bolder */
 }
 
 .leadership-card .date {
   color: var(--text-tertiary);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem; /* Slightly larger date text */
+  margin-bottom: 1.5rem; /* More space before description */
+  letter-spacing: 0.03em; /* Slightly more spaced out letters */
 }
 
-.leadership-card p {
+.leadership-card .description {
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0 0 0.5rem 0;
-  font-size: 0.9rem;
+  font-size: 1.05rem; /* Slightly larger and more readable */
+  line-height: 1.7; /* Improved line height for readability */
+  flex-grow: 1;
+  margin-bottom: 1rem; /* Space before details */
 }
 
-.leadership-card .details {
+.leadership-card .details { /* Style for the optional details field */
   color: var(--text-tertiary);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-style: italic;
-  margin: 0.5rem 0 0 0;
+  margin-top: 0.5rem;
   padding-top: 0.5rem;
-  border-top: 1px dashed var(--border-color);
+  border-top: 1px dashed rgba(var(--text-tertiary-rgb), 0.3); /* Subtle separator */
 }
 
-@media (max-width: 768px) {
+
+/* Activities - kept as is, as the request was for leadership cards */
+.activity-card {
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.activity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--accent-color);
+}
+
+.activity-card .icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  padding-top: 0.2rem;
+}
+
+.activity-card .text h4 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.activity-card .text p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for the 4-column layout */
+@media (max-width: 1200px) { /* On screens up to 1200px, adjust min-width for potentially 3-4 columns */
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 992px) { /* On screens up to 992px (e.g., tablet landscape), aim for 2-3 columns */
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) { /* On screens up to 768px (e.g., tablet portrait, mobile landscape) */
   .leadership-activities-container {
     flex-direction: column;
-    gap: 2.5rem;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
+    gap: 3rem;
   }
-  
-  .leadership-card {
-    padding: 1.25rem;
-  }
-  
+
   .column-title {
     font-size: 1.3rem;
-    margin-bottom: 1.25rem;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Might result in 1 or 2 columns */
+    gap: 1.5rem;
+  }
+
+  .leadership-card {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) { /* On very small screens (e.g., mobile portrait), stack cards */
+  .cards-container {
+    grid-template-columns: 1fr; /* Stack into a single column */
   }
 }

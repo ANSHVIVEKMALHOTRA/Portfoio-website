@@ -9,19 +9,15 @@ const skills = {
   ],
   "Frameworks & Libraries": [
     "React", "Flutter", "Node.js", "Flask", 
-    "Express.js", "Pandas", "NumPy"
+    "Express.js", "OpenCV", "Socket.IO"
   ],
   "Development Tools": [
-    "Git", "GitHub", "Firebase", "Google Colab", 
-    "Postman", "VS Code", "Grafana", "Docker"
-  ],
-  "Networking & Systems": [
-    "Cisco Packet Tracer", "GNS3", "Wireshark", 
-    "Linux", "Bash Scripting", "Networking"
+    "Git", "GitHub", "Firebase", "Google Colab",
+    "Postman", "VS Code", "Grafana","Cisco Packet Tracer", "GNS3", "Wireshark"
   ],
   "Other Tools & Concepts": [
     "Data Structures", "Algorithms", "OOP", 
-    "REST APIs", "Responsive Design", "UI/UX"
+    "REST APIs", "Agile Methodologies", "UI/UX", "figma",
   ]
 };
 

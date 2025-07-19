@@ -1,129 +1,67 @@
-/* About.css - Updated for consistency */
-/* About Section */
+/* About.css */
+
 .about-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  text-align: left;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content to the start (left) */
+  justify-content: center;
+  min-height: 80vh; /* Ensure it takes a good portion of the viewport height */
+  
+  /* Use CSS variables for consistent padding */
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  padding-left: var(--section-padding-x); /* THIS IS THE KEY CHANGE for left alignment */
+  padding-right: var(--section-padding-x); /* Maintain symmetry */
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns:  2fr;
-  gap: 50px;
-  align-items: flex-start;
-  margin-top: 2rem;
-  text-align: left;
+  display: flex;
+  flex-direction: column; /* Stack content on smaller screens */
+  gap: 2rem; /* Space between text and potential image/skills if added later */
   width: 100%;
-}
-
-.about-text {
-  color: var(--text-secondary);
+  max-width: 800px; /* Constrain content width for readability */
+  /* margin-left: 0; -- This is good, ensures content aligns with the section's left padding */
 }
 
 .about-text p {
-  margin-bottom: 20px; /* Keep specific margin */
-  font-size: 1.1rem;
+  margin-bottom: 1rem; /* Space between paragraphs */
+  color: var(--text-secondary);
+  font-size: clamp(16px, 1.2vw, 18px); /* Slightly larger and responsive font size */
   line-height: 1.6;
-  color: var(--text-secondary);
 }
 
-.about-text p:first-of-type {
-  margin-top: 0;
+.about-text p:last-child {
+  margin-bottom: 0; /* No margin after the last paragraph */
 }
 
-.skills-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
-  gap: 0 10px;
-  padding: 0;
-  margin: 20px 0 0 0;
-  overflow: hidden;
-  list-style: none;
-  position: relative;
-  z-index: 2;
+/* Specific adjustments for the section title within About */
+.about-section .section-title {
+  margin-bottom: 3rem; /* Add more space below the title */
+  align-self: flex-start; /* Ensure the title itself is aligned left within its flex container */
+  /* No negative margin here unless you specifically want it to break out of the section's padding */
 }
 
-.skills-list li {
-  position: relative;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
 
-.skills-list li::before {
-  content: '▹'; /* Consistent bullet point style */
-  position: absolute;
-  left: 0;
-  color: var(--accent-color);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
+@media (max-width: 768px) {
+  .about-section {
+    min-height: unset; /* Remove min-height on mobile if content might overflow */
+    
+    /* Adjust padding for mobile */
+    padding-top: var(--section-padding-y); /* Uses the adjusted mobile --section-padding-y from :root */
+    padding-bottom: var(--section-padding-y);
+    padding-left: var(--mobile-section-padding-x); /* Use mobile specific horizontal padding */
+    padding-right: var(--mobile-section-padding-x);
+  }
 
-.about-image {
-  position: relative;
-  max-width: 300px;
-  margin: 0 auto;
-}
+  .about-content {
+    gap: 1.5rem;
+  }
 
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  border-radius: var(--border-radius); /* Use consistent border-radius */
-  background-color: var(--accent-color); /* Use accent color for background */
-  margin-left: 20px; /* Keep specific margin */
-  transition: var(--transition); /* Add transition for hover effect */
-}
+  .about-text p {
+    font-size: 16px; /* Fixed font size for mobile paragraphs */
+  }
 
-.image-wrapper::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  background-color: var(--navy-shadow); /* Use navy-shadow for overlay */
-  mix-blend-mode: screen;
-  border-radius: var(--border-radius); /* Use consistent border-radius */
+  .about-section .section-title {
+    margin-bottom: 2rem; /* Adjust title margin for mobile */
+  }
 }
-
-.image-wrapper:hover {
-  transform: translateY(-5px); /* Subtle lift on hover */
-  box-shadow: var(--shadow-md); /* Apply consistent shadow */
-}
-
-.image-placeholder { /* This class seems redundant if image-wrapper is used for image styling */
-  position: relative;
-  width: 100%;
-  background-color: var(--accent-color);
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  z-index: 1;
-}
-
-.image-placeholder::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--accent-color);
-  border-radius: var(--border-radius);
-  top: 20px; /* Keep specific position */
-  left: 20px; /* Keep specific position */
-  z-index: 2;
-  transition: var(--transition);
-}
-
-.image-wrapper:hover .image-placeholder::before {
-  top: 10px; /* Adjust position on hover */
-  left: 10px; /* Adjust position on hover */
-}
-
-/* Responsive Design will be handled by App.css for general media queries */

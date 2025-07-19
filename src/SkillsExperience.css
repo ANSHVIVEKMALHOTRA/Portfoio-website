@@ -1,14 +1,14 @@
-/* SkillsExperience.css - Updated for consistency */
+/* SkillsExperience.css - Highly refined for a very nice, professional, and stylish look */
 
 /* --- General Section Wrapper for Skills & Experience --- */
 .skills-experience-section {
   display: flex;
   flex-direction: column;
-  gap: var(--section-spacing); /* Use consistent section spacing */
-  max-width: 900px; /* Keep specific max-width for content */
+  gap: var(--section-spacing); /* Consistent section spacing */
+  max-width: 900px; /* Specific max-width for content */
   width: 100%;
   margin: 0 auto;
-  padding: var(--section-padding-y) 1.5rem; /* Use consistent padding */
+  padding: var(--section-padding-y) 1.5rem; /* Consistent padding */
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -19,34 +19,7 @@
   overflow-x: hidden;
 }
 
-/* --- Removed specific h2 styling from here, now global in App.css --- */
-/* (Commented out as per previous analysis, global .section-title will apply) */
-/*
-.skills-container h2,
-.experience-container h2 {
-  font-size: 2.5rem;
-  color: var(--text-primary);
-  margin-bottom: 2.5rem;
-  position: relative;
-  padding-bottom: 0.8rem;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-}
-
-.skills-container h2::after,
-.experience-container h2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 80px;
-  height: 4px;
-  background-color: var(--accent-color);
-  border-radius: 2px;
-}
-*/
-
-/* --- Skills Section --- */
+/* --- Skills Section (No changes, keeping consistent with overall aesthetic) --- */
 .skills-container {
   width: 100%;
   padding: 0;
@@ -102,82 +75,123 @@
   transform: translateY(-2px); /* Subtle lift on hover */
 }
 
-/* --- Experience Section --- */
+/* --- Experience Section (Highly Stylized) --- */
 .experience-container {
   width: 100%;
   padding: 0;
   box-sizing: border-box;
 }
 
+.experience-list {
+  position: relative;
+  padding-left: 30px; /* Increased space for a more prominent timeline */
+}
+
+/* Enhanced Vertical line for the timeline */
+.experience-list::before {
+  content: '';
+  position: absolute;
+  left: 40px; /* Aligned with the center of the dots */
+  top: 0;
+  bottom: 0;
+  width: 3px; /* Thicker line for presence */
+  background: linear-gradient(to bottom, var(--accent-color), var(--border-color) 70%, var(--background-color)); /* Subtle gradient for style */
+  opacity: 0.7; /* Slightly transparent */
+  border-radius: 1.5px; /* Rounded ends for the line */
+}
+
 .experience-item {
   position: relative;
-  padding-left: 50px; /* Space for the timeline dot/line */
-  margin-bottom: 3rem; /* Spacing between experience items */
-  border-left: 2px solid var(--border-color); /* Timeline line */
-  transition: var(--transition);
+  padding: 30px 20px 30px 60px; /* More generous padding for an airy feel */
+  margin-bottom: 3rem; /* Increased spacing between experience items */
+  background-color: var(--background-color); /* Explicit background for hover effect */
+  border-radius: var(--border-radius-lg); /* Slightly larger border-radius if defined, or similar to global */
+  border: 1px solid var(--border-color); /* Subtle border for definition */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Smooth transitions */
 }
 
 .experience-item:last-child {
   margin-bottom: 0; /* No margin after the last item */
 }
 
-.experience-item-header {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
+/* Prominent Timeline dot/marker for each item */
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: 35px; /* Aligned with the vertical line */
+  top: 35px; /* Aligned with the top of the header content */
+  width: 18px; /* Larger dot */
+  height: 18px;
+  background-color: var(--accent-color); /* Accent color for the dot */
+  border-radius: 50%;
+  border: 4px solid var(--background-color); /* Thicker border to make it pop and stand out from the line */
+  box-shadow: 0 0 0 2px var(--accent-tint); /* Glow effect around the dot */
+  z-index: 2; /* Ensure dot is prominently above the line and item */
+}
+
+.experience-item:hover {
+  background-color: var(--secondary-background); /* Subtle background change on hover (assuming var exists) */
+  transform: translateY(-5px); /* More noticeable lift on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Deeper, more refined shadow */
+  border-color: var(--accent-color); /* Accent border on hover */
 }
 
 .experience-item h3 {
-  color: var(--accent-color); /* Company name in accent color */
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
+  color: var(--accent-color); /* Company name in accent for strong branding */
+  font-size: 1.8rem; /* Larger, more impactful heading */
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em; /* Tighter letter-spacing for professionalism */
 }
 
 .experience-item .role {
   color: var(--text-primary);
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-size: 1.35rem; /* Larger for better readability */
+  font-weight: 600; /* Bolder role title */
+  margin-bottom: 0.6rem;
 }
 
 .experience-item .duration {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-tertiary); /* Tertiary text for duration */
+  font-size: 1rem; /* Slightly larger for clarity */
+  color: var(--text-tertiary); /* Tertiary text for subtle duration */
+  margin-bottom: 1.5rem; /* More space before list items */
+  display: block;
 }
 
 .experience-item ul {
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .experience-item ul li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 0.75rem;
+  padding-left: 32px; /* Ample space for styled bullet */
+  margin-bottom: 1rem; /* Consistent spacing for list items */
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem; /* Good size for body text */
+  line-height: 1.7; /* Increased line height for readability */
   width: 100%;
   box-sizing: border-box;
   word-wrap: break-word;
 }
 
 .experience-item ul li::before {
-  content: '->'; /* Custom bullet point */
+  content: '→'; /* A more elegant arrow character */
   position: absolute;
   left: 0;
   color: var(--accent-color);
-  font-size: 0.8em;
-  line-height: 1.5;
+  font-size: 1em; /* Larger, more integrated bullet */
+  top: 0.2rem; /* Vertical alignment for a cleaner look */
+  line-height: 1;
+  font-weight: bold; /* Bold arrow */
 }
 
-/* Media queries for responsiveness - General media queries handled by App.css */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
   .skills-experience-section {
-    gap: var(--section-spacing);
+    gap: var(--section-spacing-sm); /* Use smaller section spacing for mobile */
   }
 
   .skill-category {
@@ -199,28 +213,47 @@
     font-size: 0.9rem;
   }
 
-  .experience-item {
-    padding-left: 40px;
-    margin-bottom: 2.5rem;
+  .experience-list {
+    padding-left: 20px;
   }
 
-  .experience-item-header {
-    margin-bottom: 0.8rem;
+  .experience-list::before {
+    left: 30px;
+    width: 2px;
+  }
+
+  .experience-item {
+    padding: 25px 15px 25px 50px; /* Adjusted padding for mobile */
+    margin-bottom: 2rem;
+  }
+
+  .experience-item::before {
+    left: 25px;
+    top: 28px;
+    width: 14px;
+    height: 14px;
+    border-width: 3px;
   }
 
   .experience-item h3 {
+    font-size: 1.5rem;
+  }
+  .experience-item .role {
     font-size: 1.2rem;
   }
 
-  .experience-item .role {
-    font-size: 1rem;
-  }
-
   .experience-item .duration {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
   }
 
   .experience-item ul li {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    padding-left: 28px;
+  }
+
+  .experience-item ul li::before {
+    top: 0.25rem;
   }
 }

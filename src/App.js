@@ -123,12 +123,14 @@ function App() {
 
         <section id="projects" ref={el => registerSection('projects', el)} className="section-padding">
           <div className="container">
+            <h2 className="section-title">Projects</h2> {/* Added Projects Heading */}
             <Projects />
           </div>
         </section>
 
         <section id="leadership" ref={el => registerSection('leadership', el)} className="section-padding">
           <div className="container">
+            <h2 className="section-title">Leadership</h2> {/* Added Leadership Heading */}
             <Leadership />
           </div>
         </section>

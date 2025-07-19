@@ -15,10 +15,11 @@ body, html {
   color: #e0e0e0;
 }
 
+/* Updated .container to allow full width */
 .container {
-  max-width: 1400px;
+  max-width: 100%; /* Changed to 100% to use full width */
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 4rem; /* This provides the consistent left spacing */
   width: 100%;
   text-align: left;
 }
@@ -26,8 +27,8 @@ body, html {
 section {
   text-align: left;
   margin: 0 auto;
-  max-width: 1400px;
-  padding: 4rem 4rem;
+  max-width: 100%; /* Changed to 100% to use full width */
+  padding: 4rem 4rem; /* This also provides consistent left spacing for sections directly */
   width: 100%;
 }
 @font-face {
@@ -62,125 +63,74 @@ section {
 
 :root {
   /* Main Color Palette (Minimal & Professional) */
-  --primary-color: #000000;             /* Black background */
-  --secondary-color: #000000;            /* Black for cards/sections */
-  --accent-color: rgb(80, 112, 199);     /* New theme color */
-  --accent-tint: rgba(80, 112, 199, 0.1); /* Lighter tint of the new accent color */
+  --primary-color: #0A0A0A;             /* Deeper black for background */
+  --secondary-color: #1A1A1A;           /* Darker grey for card/section backgrounds */
+  --accent-color: #6C8EBF;              /* Desaturated blue, calming and professional */
+  --accent-tint: rgba(108, 142, 191, 0.1); /* Lighter tint of the new accent color */
 
   /* Text Colors */
-  --text-primary: #E6F1FF;               /* White/light text for headings and primary content */
-  --text-secondary: #8892B0;             /* Lighter grey text for secondary content/paragraphs */
-  --text-tertiary: #495670;              /* Even lighter grey text for less important info */
+  --text-primary: #E0E0E0;               /* Lighter white/off-white for headings and primary content */
+  --text-secondary: #A0A0A0;             /* Medium grey text for secondary content/paragraphs */
+  --text-tertiary: #606060;              /* Darker grey text for less important info */
 
   /* UI Elements */
-  --border-color: #233554;               /* Border color for elements, subtle contrast */
-  --card-bg: #112240;                    /* Background color for cards, consistent with secondary */
-  --card-hover: #1E3A8A;                 /* Card hover state, slightly darker blue */
-  --nav-bg: rgba(10, 25, 47, 0.85);      /* Semi-transparent navbar background */
-  --nav-scrolled: rgba(10, 25, 47, 0.97); /* Navbar when scrolled, almost opaque */
+  --border-color: #303030;               /* Very subtle border color, almost blending */
+  --card-bg: var(--secondary-color);     /* Background color for cards */
+  --card-hover: #2A2A2A;                 /* Slightly lighter hover state for cards */
+  --nav-bg: rgba(10, 10, 10, 0.7);       /* More transparent navbar background */
+  --nav-scrolled: rgba(10, 10, 10, 0.9); /* Slightly less transparent when scrolled */
 
   /* Shadows (Subtle for Minimalism) */
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
-  --navy-shadow: rgba(2, 12, 27, 0.7);     /* Specific shadow for certain elements (e.g., image overlay) */
-  --navy-shadow-light: rgba(2, 12, 27, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
 
-  /* Transitions (Unified) */
-  --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Standard ease for all transitions */
-  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Spacing */
+  --section-padding-y: 3rem; /* Reduced vertical padding for a more compact feel */
+  --section-spacing: 3rem;   /* Consistent spacing between major sections */
+  --section-spacing-sm: 2rem; /* Smaller spacing for mobile */
 
-  /* Typography (Unified) */
-  --font-sans: 'SF Pro Display', 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  /* Borders & Radius */
+  --border-radius: 8px; /* Slightly more rounded corners for softness */
+  --border-radius-lg: 12px;
 
-  /* Layout & Spacing */
-  --header-height: 80px;               /* Consistent header height */
-  --max-width: 1200px;                 /* Max content width */
-  --border-radius: 4px;                /* Standard border-radius for all elements */
-  --section-padding-y: 120px;          /* Consistent vertical padding for major sections */
-  --section-spacing: 6rem;             /* Spacing between main content blocks */
-}
+  /* Transitions */
+  --transition: all 0.2s ease-in-out;
+  --transition-fast: all 0.15s ease-out;
+  --transition-ease: ease-in-out;
 
-/* Base Styles */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--header-height); /* Smooth scroll accounting for fixed header */
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Ensure consistent box model */
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--text-primary); /* Default body text color */
-  background-color: var(--primary-color); /* Default background color */
-}
-
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 2rem; /* Consistent horizontal padding */
-}
-
-section {
-  min-height: 100vh; /* Make sections take full viewport height by default */
-  padding: var(--section-padding-y) 0;
-  display: flex;
-  flex-direction: column;
-}
-
-#leadership {
-  padding-top: 3rem; /* Reduced from default */
-  justify-content: center;
-  position: relative;
-  background-color: var(--primary-color); /* Ensure sections inherit primary background */
-  color: var(--text-primary); /* Ensure sections inherit primary text color */
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 1.5rem;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-p {
-  margin: 0 0 1.5rem;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  /* Font Families */
+  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
 a {
   text-decoration: none;
   color: var(--accent-color);
   transition: var(--transition);
-  cursor: pointer;
 }
 
 a:hover {
   color: var(--accent-color);
-  filter: brightness(1.2); /* Subtle hover effect */
-  text-decoration: underline; /* Minimalist underline on hover */
+  filter: brightness(1.2);
+  text-decoration: none; /* Removed underline on hover for a cleaner look */
 }
 
 /* General Section Title Styling (for consistency) */
 .section-title {
   display: flex;
   align-items: center;
-  position: relative;
-  margin: 10px 0 40px; /* Consistent margin for titles */
-  width: 100%;
-  font-size: clamp(26px, 5vw, 32px); /* Responsive font size */
-  white-space: nowrap;
+  /* Removed position: relative; if it's not strictly needed for other internal elements */
+  margin: 10px 0 30px; /* Reduced margin for titles */
+  width: 100%; /* Ensure it takes full width of its parent to avoid alignment issues */
+  font-size: clamp(36px, 6vw, 48px); /* Increased font size significantly */
+  /* white-space: nowrap; // Can keep this if you want to prevent line breaks in the title itself */
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.1;
+  /* Ensure no additional padding or margin pushing it from the left */
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .section-title::after {
@@ -188,72 +138,44 @@ a:hover {
   display: block;
   position: relative;
   top: 5px;
-  width: 300px; /* Consistent line width */
+  width: 200px; /* Reduced line width */
   height: 1px;
-  margin-left: 20px;
+  margin-left: 15px; /* Reduced margin */
   background-color: var(--accent-color);
-  opacity: 0.5; /* Subtle line */
+  opacity: 0.3; /* More subtle line */
 }
 
 .section-number {
-  margin-right: 10px;
+  margin-right: 8px; /* Reduced margin */
   color: var(--accent-color);
   font-family: var(--font-mono);
-  font-size: clamp(16px, 3vw, 20px);
+  font-size: clamp(14px, 2.5vw, 18px); /* Slightly reduced font size */
   font-weight: 400;
 }
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
   :root {
-    --section-padding-y: 80px;
-    --section-spacing: 4rem;
+    --section-padding-y: 60px; /* Adjust for smaller screens */
   }
-  
-  html {
-    scroll-padding-top: 80px;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 3rem;
-  }
-  
-  .card { /* Assuming a general .card class for shared styles */
-    padding: 1.8rem;
-  }
-}
 
-@media (max-width: 480px) {
-  :root {
-    --section-padding-y: 60px;
-    --section-spacing: 3.5rem;
-  }
-  
   .container {
-    padding: 0 1.2rem;
+    padding: 0 2rem; /* Adjusted padding for mobile */
   }
-  
+
+  section {
+    padding: 3rem 2rem; /* Adjusted padding for mobile */
+  }
+
   .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: clamp(30px, 7vw, 40px); /* Adjust for smaller screens */
+    margin-bottom: 25px;
+    padding-left: 0;
+    margin-left: 0;
   }
-  
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.6rem; }
-  h4 { font-size: 1.3rem; }
-}
 
-.highlight-text {
-  font-size: 2.2rem;
-  font-weight: bold;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
-}
-
-.highlight-text span {
-  font-weight: 600;
-  font-size: 1.5rem;
+  .section-title::after {
+    width: 100px; /* Smaller line for mobile */
+    margin-left: 10px;
+  }
 }

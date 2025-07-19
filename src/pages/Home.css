@@ -140,3 +140,8 @@ body {
     justify-content: center;
   }
 }
+/* Add this to your Home.css */
+.hero-section {
+  margin-top: 150px; /* Adjust this value as needed to create the desired gap */
+  /* Other existing styles for hero-section can remain here */
+}
