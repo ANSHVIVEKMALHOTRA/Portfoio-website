@@ -61,10 +61,6 @@ const Navbar = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   // Navigation items with corresponding section IDs
   const navItems = [
     { id: 'home', label: 'Home' },
