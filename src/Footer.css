@@ -130,16 +130,13 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr; /* Stack columns on smaller screens */
-    text-align: center; /* Center align content for better mobile display */
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
   }
 
   .footer-section {
-    align-items: center; /* Center align items within sections */
-  }
-
-  .footer-links {
-    align-items: center; /* Center align links */
+    align-items: center;
   }
 }
 

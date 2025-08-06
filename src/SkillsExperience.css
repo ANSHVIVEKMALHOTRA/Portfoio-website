@@ -191,69 +191,13 @@
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .skills-experience-section {
-    gap: var(--section-spacing-sm); /* Use smaller section spacing for mobile */
-  }
-
-  .skill-category {
-    margin-bottom: 2rem;
+    padding: 2rem 0.5rem;
+    max-width: 100%;
   }
   .skill-category h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  .skill-category h3::before {
-    width: 10px;
-    height: 10px;
+    font-size: 1.1rem;
   }
   .skill-tags {
-    gap: 0.6rem;
-  }
-  .skill-tag {
-    padding: 0.4rem 0.9rem;
-    font-size: 0.9rem;
-  }
-
-  .experience-list {
-    padding-left: 20px;
-  }
-
-  .experience-list::before {
-    left: 30px;
-    width: 2px;
-  }
-
-  .experience-item {
-    padding: 25px 15px 25px 50px; /* Adjusted padding for mobile */
-    margin-bottom: 2rem;
-  }
-
-  .experience-item::before {
-    left: 25px;
-    top: 28px;
-    width: 14px;
-    height: 14px;
-    border-width: 3px;
-  }
-
-  .experience-item h3 {
-    font-size: 1.5rem;
-  }
-  .experience-item .role {
-    font-size: 1.2rem;
-  }
-
-  .experience-item .duration {
-    font-size: 0.9rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .experience-item ul li {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
-    padding-left: 28px;
-  }
-
-  .experience-item ul li::before {
-    top: 0.25rem;
+    gap: 0.5rem;
   }
 }
