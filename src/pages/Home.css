@@ -129,6 +129,8 @@ body {
     max-width: 100%;
     justify-content: center;
     margin-top: 2rem;
+    /* Remove scaling on mobile */
+    transform: scale(1);
   }
   
   .hero-text {

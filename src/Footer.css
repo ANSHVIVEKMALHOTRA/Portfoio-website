@@ -145,22 +145,6 @@
 
 @media (max-width: 480px) {
   .main-footer {
-    padding: 2.5rem 1rem; /* Adjust padding for very small screens */
-  }
-
-  .footer-name {
-    font-size: 1.5rem;
-  }
-
-  .footer-description {
-    font-size: 0.95rem;
-  }
-
-  .footer-heading {
-    font-size: 1.05rem;
-  }
-
-  .footer-bottom {
-    font-size: 0.85rem;
+    padding: 2rem 0.5rem; /* Slightly less padding for very small screens */
   }
 }

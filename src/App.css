@@ -156,26 +156,26 @@ a:hover {
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
   :root {
-    --section-padding-y: 60px; /* Adjust for smaller screens */
+    --section-padding-y: 60px;
   }
 
   .container {
-    padding: 0 2rem; /* Adjusted padding for mobile */
+    padding: 0 1rem; /* Was 2rem, now 1rem for more space */
   }
 
   section {
-    padding: 3rem 2rem; /* Adjusted padding for mobile */
+    padding: 2rem 1rem; /* Was 3rem 2rem, now 2rem 1rem */
   }
 
   .section-title {
-    font-size: clamp(30px, 7vw, 40px); /* Adjust for smaller screens */
+    font-size: clamp(30px, 7vw, 40px);
     margin-bottom: 25px;
     padding-left: 0;
     margin-left: 0;
   }
 
   .section-title::after {
-    width: 100px; /* Smaller line for mobile */
+    width: 100px;
     margin-left: 10px;
   }
 }
