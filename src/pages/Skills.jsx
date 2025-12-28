@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 
 import {
   FaCode, FaLayerGroup, FaTools, FaLightbulb,
-  FaNetworkWired, FaProjectDiagram, FaCalculator, FaCube, FaServer, FaSync, FaPencilRuler,
+  FaProjectDiagram, FaCalculator, FaCube, FaServer,
   FaMicrochip, FaFilter, FaClipboardCheck, FaChartLine, FaChartBar, FaRocket, FaWifi
 } from 'react-icons/fa';
-import { VscVscode } from "react-icons/vsc";
+// Removed VscVscode as it was unused
 import {
   SiC, SiCplusplus, SiPython, SiDart, SiMysql,
   SiHtml5, SiCss3, SiJavascript, SiLatex,
-  SiReact, SiFlutter, SiNodedotjs, SiFlask, SiExpress, SiOpencv, SiSocketdotio,
+  SiReact, SiFlutter, SiNodedotjs, SiExpress, SiOpencv, SiSocketdotio,
   SiGit, SiGithub, SiFirebase, SiGooglecolab, SiPostman, SiGrafana, SiWireshark,
-  SiFigma, SiTensorflow, SiGitlab, SiCisco
+  SiTensorflow, SiGitlab, SiCisco
 } from 'react-icons/si';
 
 // Skill categories with icons

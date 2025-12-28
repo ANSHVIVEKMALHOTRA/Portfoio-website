@@ -1,6 +1,6 @@
 // src/Footer.jsx
 import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import './Footer.css';
 import profileImage from './assets/profile.png';
 

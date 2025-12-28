@@ -3,7 +3,7 @@ import './Home.css';
 import { motion } from 'framer-motion';
 import Typewriter from '../components/Typewriter';
 import InteractiveVisual from '../components/InteractiveVisual';
-import { FaGithub, FaLinkedin, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Home = () => {
   return (
