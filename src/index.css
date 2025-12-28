@@ -1,56 +1,146 @@
-/* index.css - Updated to use centralized variables and page background */
-/* Remove conflicting :root variables as they are now in App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  /* Page Specific Background - remains here as it's a unique page-level effect */
-  --page-background: radial-gradient(circle at 15% 50%, transparent 50%), /* Use accent-color tint */
-                     radial-gradient(circle at 85% 50%, transparent 50%), /* Keep a subtle pink for contrast */
-                     var(--primary-color); /* Base dark color from centralized variables */
+  --font-main: 'Poppins', sans-serif;
+
+  /* Modern Dark Theme Palette */
+  --bg-dark: #000000;
+  --bg-card: #151515;
+  --bg-card-hover: #1e1e1e;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+
+  --primary-color: #000000;
+  /* Keeping for compatibility if needed */
+  --accent-color: #92c1dc;
+  /* Professional Blue */
+  --accent-hover: #74a8c8;
+
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --section-spacing: 120px;
+
+  --border-radius: 12px;
+  --border-light: rgba(255, 255, 255, 0.1);
+
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  /* Inherited from App.css for font-family, color, etc. */
-  background: var(--page-background); /* Use the new dynamic page background */
-  background-attachment: fixed; /* Keep background fixed while scrolling */
-  /* Margin and padding handled by App.css base styles */
-  /* font-smoothing handled by App.css base styles */
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  cursor: none;
+  /* Hide default cursor */
 }
 
-/* Scrollbar styles - remain unique to index.css */
+a,
+button {
+  cursor: none;
+  /* Hide default pointer */
+}
+
+/* Subtle Gradient Background */
+/* Subtle Gradient Background - REMOVED for pure black request */
+/* body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(146, 193, 220, 0.03), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02), transparent 25%);
+} */
+
+/* Selection Color */
+::selection {
+  background: var(--accent-color);
+  color: #000;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--secondary-color); /* Use secondary color for track */
+  background: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
+  background: #333;
   border-radius: 5px;
+  border: 2px solid var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  filter: brightness(1.2); /* Subtle hover effect */
+  background: #555;
 }
 
-/* Global Container Styling (now defined in App.css, remove if duplicated) */
-/* .container styles are in App.css now */
-
-/* Leadership cards container - remains here */
-.leadership-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem; /* Adjust as needed */
-  padding-top: 1.5rem; /* Space from the title */
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-/* Background animation */
-body {
-  background-size: 200% 200%; /* Make background larger for panning */
-  animation: backgroundPan 30s linear infinite alternate; /* Slower, subtle animation */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
 }
 
-@keyframes backgroundPan {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
+ul {
+  list-style: none;
+}
+
+/* Section Common Styles */
+.section-padding {
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 12vw;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  display: inline-block;
+  color: var(--text-primary);
+}
+
+/* Utility Classes */
+.text-accent {
+  color: var(--accent-color);
+}
+
+.text-dim {
+  color: var(--text-secondary);
 }

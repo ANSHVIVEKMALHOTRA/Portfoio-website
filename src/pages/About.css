@@ -3,65 +3,34 @@
 .about-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align content to the start (left) */
   justify-content: center;
-  min-height: 80vh; /* Ensure it takes a good portion of the viewport height */
-  
-  /* Use CSS variables for consistent padding */
-  padding-top: var(--section-padding-y);
-  padding-bottom: var(--section-padding-y);
-  padding-left: var(--section-padding-x); /* THIS IS THE KEY CHANGE for left alignment */
-  padding-right: var(--section-padding-x); /* Maintain symmetry */
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .about-content {
   display: flex;
-  flex-direction: column; /* Stack content on smaller screens */
-  gap: 2rem; /* Space between text and potential image/skills if added later */
+  flex-direction: column;
+  gap: var(--space-md);
   width: 100%;
-  max-width: 800px; /* Constrain content width for readability */
-  /* margin-left: 0; -- This is good, ensures content aligns with the section's left padding */
+  max-width: 800px;
+  /* Optimal reading width */
 }
 
 .about-text p {
-  margin-bottom: 1rem; /* Space between paragraphs */
+  margin-bottom: var(--space-sm);
   color: var(--text-secondary);
-  font-size: clamp(16px, 1.2vw, 18px); /* Slightly larger and responsive font size */
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .about-text p:last-child {
-  margin-bottom: 0; /* No margin after the last paragraph */
+  margin-bottom: 0;
 }
-
-/* Specific adjustments for the section title within About */
-.about-section .section-title {
-  margin-bottom: 3rem; /* Add more space below the title */
-  align-self: flex-start; /* Ensure the title itself is aligned left within its flex container */
-  /* No negative margin here unless you specifically want it to break out of the section's padding */
-}
-
 
 @media (max-width: 768px) {
-  .about-section {
-    min-height: unset; /* Remove min-height on mobile if content might overflow */
-    
-    /* Adjust padding for mobile */
-    padding-top: var(--section-padding-y); /* Uses the adjusted mobile --section-padding-y from :root */
-    padding-bottom: var(--section-padding-y);
-    padding-left: var(--mobile-section-padding-x); /* Use mobile specific horizontal padding */
-    padding-right: var(--mobile-section-padding-x);
-  }
-
-  .about-content {
-    gap: 1.5rem;
-  }
-
   .about-text p {
-    font-size: 16px; /* Fixed font size for mobile paragraphs */
-  }
-
-  .about-section .section-title {
-    margin-bottom: 2rem; /* Adjust title margin for mobile */
+    font-size: 1rem;
   }
 }

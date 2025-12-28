@@ -5,26 +5,34 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
-body, html {
+body,
+html {
   text-align: left;
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  background-color: #000000;
-  color: #e0e0e0;
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 /* Updated .container to allow full width */
+/* Updated .container to allow full width with more padding */
 .container {
-  max-width: 100%; /* Changed to 100% to use full width */
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 4rem; /* This provides the consistent left spacing */
+  padding: 0 12vw;
+  /* Increased padding to push content away from edges */
   width: 100%;
   text-align: left;
 }
@@ -32,93 +40,158 @@ body, html {
 section {
   text-align: left;
   margin: 0 auto;
-  max-width: 100%; /* Changed to 100% to use full width */
-  padding: 4rem 4rem; /* This also provides consistent left spacing for sections directly */
+  max-width: 100%;
+  padding: 6rem 0;
+  /* Removed horizontal padding to rely on container */
   width: 100%;
 }
-@font-face {
-  font-family: 'SF Pro Display';
-  src: local('SF Pro Display'), local('SFProDisplay-Regular'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
 }
 
-@font-face {
-  font-family: 'SF Pro Display';
-  src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2') format('woff2'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2') format('woff2'),
-       url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Main Color Palette (Minimal & Professional) */
-  --primary-color: #0A0A0A;             /* Deeper black for background */
-  --secondary-color: #1A1A1A;           /* Darker grey for card/section backgrounds */
-  --accent-color: #6C8EBF;              /* Desaturated blue, calming and professional */
-  --accent-tint: rgba(108, 142, 191, 0.1); /* Lighter tint of the new accent color */
+  /* Lando Norris Inspired Palette */
+  /* Lando Norris Inspired Palette (Consolidated) */
+  --primary-color: #000000;
+  --secondary-color: #000000;
+  --tertiary-color: #000000;
 
-  /* Text Colors */
-  --text-primary: #E0E0E0;               /* Lighter white/off-white for headings and primary content */
-  --text-secondary: #A0A0A0;             /* Medium grey text for secondary content/paragraphs */
-  --text-tertiary: #606060;              /* Darker grey text for less important info */
+  /* Colors - Lando Norris Style (Updated to Neon Lime) */
+  /* Colors - Soft Dark Theme */
+  /* Colors - Pure Black Theme */
+  --primary-color: #000000;
+  --secondary-color: #000000;
+  /* Ensuring alternate sections are also black */
+  --tertiary-color: #050505;
+  /* Very subtle difference if needed, or keeping black */
 
-  /* UI Elements */
-  --border-color: #303030;               /* Very subtle border color, almost blending */
-  --card-bg: var(--secondary-color);     /* Background color for cards */
-  --card-hover: #2A2A2A;                 /* Slightly lighter hover state for cards */
-  --nav-bg: rgba(10, 10, 10, 0.7);       /* More transparent navbar background */
-  --nav-scrolled: rgba(10, 10, 10, 0.9); /* Slightly less transparent when scrolled */
+  --accent-color: #92c1dc;
+  /* Professional Blue */
+  --accent-tint: rgba(146, 193, 220, 0.08);
+  /* Reduced opacity */
 
-  /* Shadows (Subtle for Minimalism) */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --text-primary: #E0E0E0;
+  /* 88% White (was #EEF1F6) */
+  --text-secondary: #A0A0A0;
+  /* Soft Grey (was #BBBFC5) */
+  --text-tertiary: #666666;
+  /* Darker Grey */
 
-  /* Spacing */
-  --section-padding-y: 3rem; /* Reduced vertical padding for a more compact feel */
-  --section-spacing: 3rem;   /* Consistent spacing between major sections */
-  --section-spacing-sm: 2rem; /* Smaller spacing for mobile */
+  --border-color: #333333;
+  /* Softer border (was #222) */
+  --card-bg: #161616;
+  /* Match secondary */
+  --nav-bg: rgba(14, 14, 14, 0.9);
+  /* Match primary with blur */
+
+  /* Spacing System */
+  --space-unit: 4px;
+  --space-xs: calc(var(--space-unit) * 2);
+  /* 8px */
+  --space-sm: calc(var(--space-unit) * 4);
+  /* 16px */
+  --space-md: calc(var(--space-unit) * 8);
+  /* 32px */
+  --space-lg: calc(var(--space-unit) * 16);
+  /* 64px */
+  --space-xl: calc(var(--space-unit) * 24);
+  /* 96px */
+  --space-xxl: calc(var(--space-unit) * 32);
+  /* 128px */
+  --space-xxxl: calc(var(--space-unit) * 40);
+  /* 160px */
+
+  --section-padding-y: var(--space-xxxl);
+  --section-spacing: var(--space-xxl);
 
   /* Borders & Radius */
-  --border-radius: 8px; /* Slightly more rounded corners for softness */
-  --border-radius-lg: 12px;
+  --border-radius: 0px;
+  /* Sharp corners key to the sporty/brutalist look */
+  --border-radius-lg: 4px;
+  /* Minimal rounding if needed */
 
   /* Transitions */
-  --transition: all 0.2s ease-in-out;
-  --transition-fast: all 0.15s ease-out;
-  --transition-ease: ease-in-out;
+  --transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   /* Font Families */
-  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --font-heading: 'Poppins', sans-serif;
+  /* Cool & Professional */
+  --font-body: 'Poppins', sans-serif;
+  /* Clean, legible */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Global Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  text-transform: capitalize;
+  /* Removed uppercase for cleaner professional look */
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  /* Poppins 600 is good for headers */
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.section-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  border-left: 5px solid var(--accent-color);
+  padding-left: 3rem;
+  /* Increased from 1.5rem to 3rem */
+  display: block;
+  /* Ensure it blocks */
+}
+
+/* Remove old decoration styles */
+.section-title::after {
+  display: none;
+}
+
+.section-number {
+  color: var(--accent-color);
+  font-size: 0.4em;
+  vertical-align: top;
+  margin-right: 10px;
+  font-weight: 400;
 }
 
 a {
   text-decoration: none;
   color: var(--accent-color);
   transition: var(--transition);
+  position: relative;
 }
 
 a:hover {
   color: var(--accent-color);
   filter: brightness(1.2);
-  text-decoration: none; /* Removed underline on hover for a cleaner look */
+  text-decoration: none;
+  /* Removed underline on hover for a cleaner look */
 }
 
 /* General Section Title Styling (for consistency) */
@@ -126,15 +199,18 @@ a:hover {
   display: flex;
   align-items: center;
   /* Removed position: relative; if it's not strictly needed for other internal elements */
-  margin: 10px 0 30px; /* Reduced margin for titles */
-  width: 100%; /* Ensure it takes full width of its parent to avoid alignment issues */
-  font-size: clamp(36px, 6vw, 48px); /* Increased font size significantly */
+  margin: 10px 0 30px;
+  /* Reduced margin for titles */
+  width: 100%;
+  /* Ensure it takes full width of its parent to avoid alignment issues */
+  font-size: clamp(36px, 6vw, 48px);
+  /* Increased font size significantly */
   /* white-space: nowrap; // Can keep this if you want to prevent line breaks in the title itself */
-  color: var(--text-primary);
+  color: var(--accent-color);
   font-weight: 600;
   line-height: 1.1;
   /* Ensure no additional padding or margin pushing it from the left */
-  padding-left: 0;
+  /* padding-left: 0; REMOVED to allow border spacing */
   margin-left: 0;
 }
 
@@ -142,19 +218,20 @@ a:hover {
   content: '';
   display: block;
   position: relative;
-  top: 5px;
-  width: 200px; /* Reduced line width */
+  width: 150px;
   height: 1px;
-  margin-left: 15px; /* Reduced margin */
-  background-color: var(--accent-color);
-  opacity: 0.3; /* More subtle line */
+  margin-left: 20px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+  opacity: 0.5;
 }
 
 .section-number {
-  margin-right: 8px; /* Reduced margin */
+  margin-right: 8px;
+  /* Reduced margin */
   color: var(--accent-color);
   font-family: var(--font-mono);
-  font-size: clamp(14px, 2.5vw, 18px); /* Slightly reduced font size */
+  font-size: clamp(14px, 2.5vw, 18px);
+  /* Slightly reduced font size */
   font-weight: 400;
 }
 
@@ -165,11 +242,13 @@ a:hover {
   }
 
   .container {
-    padding: 0 1rem; /* Was 2rem, now 1rem for more space */
+    padding: 0 8vw;
+    /* Was 1rem, now 8vw for more space */
   }
 
   section {
-    padding: 2rem 1rem; /* Was 3rem 2rem, now 2rem 1rem */
+    padding: 2rem 0;
+    /* Was 2rem 1rem, now 2rem 0 */
   }
 
   .section-title {
@@ -184,11 +263,6 @@ a:hover {
     margin-left: 10px;
   }
 
-  .container,
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
   section {
     padding-top: 2rem;
     padding-bottom: 2rem;

@@ -1,203 +1,336 @@
-/* SkillsExperience.css - Highly refined for a very nice, professional, and stylish look */
+/* SkillsExperience.css - Glassmorphism & Modern styling */
 
-/* --- General Section Wrapper for Skills & Experience --- */
 .skills-experience-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--section-spacing); /* Consistent section spacing */
-  max-width: 900px; /* Specific max-width for content */
+  /* display: flex; REMOVED */
+  /* flex-direction: column; REMOVED */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   width: 100%;
   margin: 0 auto;
-  padding: var(--section-padding-y) 1.5rem; /* Consistent padding */
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-/* Ensure no horizontal scroll */
-.skills-experience-section > * {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* --- Skills Section (No changes, keeping consistent with overall aesthetic) --- */
-.skills-container {
-  width: 100%;
   padding: 0;
-  box-sizing: border-box;
+  padding-top: var(--space-md);
 }
 
 .skill-category {
-  margin-bottom: 3rem; /* Spacing between categories */
+  background: transparent;
+  padding: 1rem 0;
+  border: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.skill-category:hover {
+  background: transparent;
+  border: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .skill-category h3 {
-  color: var(--accent-color); /* Category titles in accent color */
-  font-size: 1.5rem; /* Larger category title */
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: #fff;
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  font-weight: 600;
+  gap: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
 }
 
-.skill-category h3::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.skill-tags {
+.category-icon {
+  color: var(--accent-color);
+  font-size: 1.4rem;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Accent block next to title */
+/* Accent block next to title - REMOVED since we have icons now */
+.skill-category h3::before {
+  display: none;
+}
+
+/* Skills Grid - Horizontal Scroll */
+/* Skills Grid - Horizontal Scroll */
+.skills-grid {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0.5rem;
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: var(--accent-color) transparent;
+}
+
+/* Custom Scrollbar for Webkit */
+.skills-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.skills-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.skills-grid::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
-  margin: 1rem 0 2rem;
-  width: 100%;
-}
-
-.skill-tag {
-  background-color: var(--secondary-color); /* Use secondary color for tag background */
+  min-width: 80px;
+  /* Ensure consistent spacing */
+  cursor: pointer;
+  transition: all 0.3s ease;
   color: var(--text-secondary);
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  color: var(--accent-color);
+}
+
+.skill-icon {
+  font-size: 2.2rem;
+  /* Large icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1);
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 8px var(--accent-color));
+}
+
+.skill-name {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius); /* Consistent border-radius */
-  border: 1px solid var(--border-color); /* Consistent border */
-  transition: var(--transition); /* Consistent transition */
-  cursor: default;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.skill-tag:hover {
-  background-color: var(--accent-tint); /* Accent tint on hover */
-  color: var(--accent-color); /* Accent color text on hover */
-  transform: translateY(-2px); /* Subtle lift on hover */
-}
 
-/* --- Experience Section (Highly Stylized) --- */
+/* Experience Section - Premium Timeline */
 .experience-container {
+  position: relative;
   width: 100%;
-  padding: 0;
-  box-sizing: border-box;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 15%,
+      rgba(255, 255, 255, 0.1) 85%,
+      rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
 }
 
 .experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   position: relative;
-  padding-left: 30px; /* Increased space for a more prominent timeline */
+  z-index: 2;
 }
 
-/* Enhanced Vertical line for the timeline */
-.experience-list::before {
-  content: '';
+.experience-card-wrapper {
+  position: relative;
+  padding-left: 60px;
+}
+
+.timeline-dot {
   position: absolute;
-  left: 40px; /* Aligned with the center of the dots */
+  left: 10px;
   top: 0;
-  bottom: 0;
-  width: 3px; /* Thicker line for presence */
-  background: linear-gradient(to bottom, var(--accent-color), var(--border-color) 70%, var(--background-color)); /* Subtle gradient for style */
-  opacity: 0.7; /* Slightly transparent */
-  border-radius: 1.5px; /* Rounded ends for the line */
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border: 1px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
 }
 
-.experience-item {
+.experience-card-wrapper:hover .timeline-dot {
+  background: var(--accent-color);
+  color: #000;
+  box-shadow: 0 0 15px var(--accent-color);
+  transform: scale(1.1);
+}
+
+.experience-card {
+  background: transparent;
+  /* Was rgba(22, 22, 22, 0.6) */
+  backdrop-filter: none;
+  /* Remove blur for full transparency as requested, or keep minimal if "transparent" means glass */
+  border: 1px solid rgba(146, 193, 220, 0.3);
+  /* Visible border using accent color/tint */
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
-  padding: 30px 20px 30px 60px; /* More generous padding for an airy feel */
-  margin-bottom: 3rem; /* Increased spacing between experience items */
-  background-color: var(--background-color); /* Explicit background for hover effect */
-  border-radius: var(--border-radius-lg); /* Slightly larger border-radius if defined, or similar to global */
-  border: 1px solid var(--border-color); /* Subtle border for definition */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Smooth transitions */
+  overflow: hidden;
 }
 
-.experience-item:last-child {
-  margin-bottom: 0; /* No margin after the last item */
-}
-
-/* Prominent Timeline dot/marker for each item */
-.experience-item::before {
+.experience-card::before {
   content: '';
   position: absolute;
-  left: 35px; /* Aligned with the vertical line */
-  top: 35px; /* Aligned with the top of the header content */
-  width: 18px; /* Larger dot */
-  height: 18px;
-  background-color: var(--accent-color); /* Accent color for the dot */
-  border-radius: 50%;
-  border: 4px solid var(--background-color); /* Thicker border to make it pop and stand out from the line */
-  box-shadow: 0 0 0 2px var(--accent-tint); /* Glow effect around the dot */
-  z-index: 2; /* Ensure dot is prominently above the line and item */
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--accent-color);
+  transition: height 0.3s ease;
 }
 
-.experience-item:hover {
-  background-color: var(--secondary-background); /* Subtle background change on hover (assuming var exists) */
-  transform: translateY(-5px); /* More noticeable lift on hover */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Deeper, more refined shadow */
-  border-color: var(--accent-color); /* Accent border on hover */
+.experience-card-wrapper:hover .experience-card {
+  transform: translateY(-5px);
+  background: rgba(146, 193, 220, 0.05);
+  /* Very subtle tint on hover */
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.experience-item h3 {
-  color: var(--accent-color); /* Company name in accent for strong branding */
-  font-size: 1.8rem; /* Larger, more impactful heading */
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.02em; /* Tighter letter-spacing for professionalism */
+.experience-card-wrapper:hover .experience-card::before {
+  height: 100%;
 }
 
-.experience-item .role {
-  color: var(--text-primary);
-  font-size: 1.35rem; /* Larger for better readability */
-  font-weight: 600; /* Bolder role title */
-  margin-bottom: 0.6rem;
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
 }
 
-.experience-item .duration {
+.company-name {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.role-badge {
+  font-family: var(--font-body);
+  background: rgba(146, 193, 220, 0.1);
+  /* fallback accent color usage */
+  color: var(--accent-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(146, 193, 220, 0.2);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   font-family: var(--font-mono);
-  font-size: 1rem; /* Slightly larger for clarity */
-  color: var(--text-tertiary); /* Tertiary text for subtle duration */
-  margin-bottom: 1.5rem; /* More space before list items */
-  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
-.experience-item ul {
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-icon {
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.experience-description {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.experience-item ul li {
+.experience-description li {
   position: relative;
-  padding-left: 32px; /* Ample space for styled bullet */
-  margin-bottom: 1rem; /* Consistent spacing for list items */
+  padding-left: 1.2rem;
+  margin-bottom: 0.8rem;
   color: var(--text-secondary);
-  font-size: 1.05rem; /* Good size for body text */
-  line-height: 1.7; /* Increased line height for readability */
-  width: 100%;
-  box-sizing: border-box;
-  word-wrap: break-word;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.experience-item ul li::before {
-  content: '→'; /* A more elegant arrow character */
+.experience-description li::before {
+  content: '▹';
   position: absolute;
   left: 0;
   color: var(--accent-color);
-  font-size: 1em; /* Larger, more integrated bullet */
-  top: 0.2rem; /* Vertical alignment for a cleaner look */
-  line-height: 1;
-  font-weight: bold; /* Bold arrow */
+  font-size: 0.8rem;
+  top: 3px;
 }
 
-/* Media queries for responsiveness */
+.experience-description li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .skills-experience-section {
-    padding: 2rem 0.5rem;
-    max-width: 100%;
+  .experience-card-wrapper {
+    padding-left: 0;
+    padding-top: 40px;
   }
-  .skill-category h3 {
-    font-size: 1.1rem;
+
+  .timeline-line {
+    left: 20px;
   }
-  .skill-tags {
+
+  .timeline-dot {
+    left: 5px;
+  }
+
+  /* Make sure card goes below dot on mobile */
+  .experience-card-wrapper {
+    padding-left: 50px;
+    /* Keep indentation but maybe less padding */
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .card-header {
+    flex-direction: column;
     gap: 0.5rem;
   }
 }

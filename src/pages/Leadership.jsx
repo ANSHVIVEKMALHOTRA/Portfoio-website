@@ -6,7 +6,7 @@ const leadershipRoles = [
   {
     title: 'President',
     organization: 'ISTE NITK',
-    period: '2022 - 2023',
+    period: '2022 - 2026',
     description: 'Led a team of 200+ students in organizing technical workshops, events, and fostering a learning environment for aspiring engineers.',
     details: 'Prior role: Technical Secretary'
   },
@@ -34,21 +34,17 @@ const leadershipRoles = [
 ];
 
 const Leadership = () => (
-  <section id="leadership" className="section">
-    <div className="container">
-      <div className="cards-container">
-        {leadershipRoles.map((role, index) => (
-          <div key={index} className="leadership-card">
-            <h3>{role.title}</h3>
-            <p className="organization">{role.organization}</p>
-            <p className="date">{role.period}</p>
-            <p className="description">{role.description}</p>
-            {role.details && <p className="details">{role.details}</p>}
-          </div>
-        ))}
+  <div className="cards-container">
+    {leadershipRoles.map((role, index) => (
+      <div key={index} className="leadership-card">
+        <h3>{role.title}</h3>
+        <p className="organization">{role.organization}</p>
+        <p className="date">{role.period}</p>
+        <p className="description">{role.description}</p>
+        {role.details && <p className="details">{role.details}</p>}
       </div>
-    </div>
-  </section>
+    ))}
+  </div>
 );
 
 export default Leadership;

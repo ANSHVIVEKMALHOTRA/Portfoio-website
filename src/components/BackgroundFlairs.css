@@ -1,0 +1,44 @@
+/* Container for the background flairs - FIXED behind everything */
+.background-flairs-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Base style for all flairs */
+.flair {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    /* Slightly reduced blur for better performance during motion */
+    opacity: 0.6;
+}
+
+/* Specific Colors */
+.flair-white {
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 1;
+}
+
+.flair-blue {
+    background: radial-gradient(circle, rgba(146, 193, 220, 0.4) 0%, rgba(146, 193, 220, 0.1) 70%);
+    z-index: 2;
+}
+
+.flair-dark {
+    background: radial-gradient(circle, rgba(33, 77, 118, 0.6) 0%, rgba(33, 77, 118, 0.1) 70%);
+    z-index: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .flair {
+        filter: blur(70px);
+        opacity: 0.5;
+    }
+}

@@ -1,118 +1,128 @@
-/* Projects.css - Clean Square UI */
+/* Projects.css - Technical Spec Grid Cards */
 
 .projects-section {
-  padding: 4rem 0; /* Changed to 0 horizontal padding, rely on App.css section and container */
   width: 100%;
-  background-color: var(--bg-primary);
-  box-sizing: border-box;
+  padding: 0;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 5rem;
-  max-width: 100%; /* Changed to 100% to use full width */
+.projects-container {
+  max-width: 100%;
   margin: 0 auto;
 }
 
-.project-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  height: 100%;
+/* Hide the list header */
+.projects-header-row {
+  display: none;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+.project-row {
+  /* Renamed concept to Card in CSS, keeping class name for React compatibility */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border-color: var(--accent-color);
-}
-
-.project-header {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.2rem;
+  background: transparent;
+  /* Was var(--card-bg) */
+  border: 1px solid rgba(146, 193, 220, 0.3);
+  /* Added visible border */
+  padding: var(--space-md);
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+  /* Sharp corners */
 }
 
-.folder-icon {
-  font-size: 2rem;
-  color: var(--accent-color);
+.project-row:hover {
+  background: rgba(146, 193, 220, 0.05);
+  /* Subtle tint on hover */
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  /* Subtler lift */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.project-links {
-  display: flex;
-  gap: 10px;
+.project-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-.project-link-icon {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
+.project-row:hover::before {
+  transform: scaleX(1);
 }
 
-.project-link-icon:hover {
-  color: var(--accent-color);
+.row-content {
+  margin-bottom: var(--space-md);
 }
 
 .project-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 0.5rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  line-height: 1.2;
+  transition: 0.3s;
+}
+
+.project-row:hover .project-title {
+  color: #fff;
+  /* Keep white, let border do the talking */
 }
 
 .project-description {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  flex-grow: 1;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-right: 0;
+  /* Reset */
 }
 
-.project-technologies {
+.row-actions {
   display: flex;
-  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: auto;
+  border-top: 1px solid #222;
+  padding-top: var(--space-sm);
+}
+
+.action-link {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.technology-tag {
-  background-color: var(--secondary-color);
-  color: var(--accent-color);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  text-decoration: none;
   font-family: var(--font-mono);
-  white-space: nowrap;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: 0.2s;
+  padding: 0;
+  border: none;
 }
 
-/* Responsive adjustments for projects grid */
+.action-link:hover {
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .projects-section {
-    padding: 3rem 0; /* Adjust vertical padding for mobile */
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 3rem; /* Reduced gap for mobile */
-  }
-
-  .project-card {
-    padding: 1.2rem;
-  }
-
-  .project-title {
-    font-size: 1.2rem;
-  }
-
-  .project-description {
-    font-size: 0.9rem;
+  .projects-list {
+    grid-template-columns: 1fr;
   }
 }
