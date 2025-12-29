@@ -245,6 +245,13 @@ a:hover {
     padding: 0 8vw;
     /* Was 1rem, now 8vw for more space */
   }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+    /* Maximize space on small screens */
+  }
 
   section {
     padding: 2rem 0;

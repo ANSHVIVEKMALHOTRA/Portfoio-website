@@ -216,3 +216,9 @@
     padding: 0 8vw;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+}
