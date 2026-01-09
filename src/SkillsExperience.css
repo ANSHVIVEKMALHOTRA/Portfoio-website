@@ -61,12 +61,9 @@
 .skills-grid {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;
+  flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1rem 0.5rem;
-  scrollbar-width: thin;
-  /* Firefox */
-  scrollbar-color: var(--accent-color) transparent;
 }
 
 /* Custom Scrollbar for Webkit */

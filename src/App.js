@@ -11,6 +11,7 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
+import Coursework from './pages/Coursework';
 import Leadership from './pages/Leadership';
 import Education from './pages/Education';
 import Footer from './Footer';
@@ -32,14 +33,16 @@ function App() {
   };
 
   // Handle smooth scrolling to section
+  // Handle smooth scrolling to section
   const scrollToSection = (sectionId) => {
-    if (isScrolling.current || !sections.current[sectionId]) return;
+    const element = sections.current[sectionId] || document.getElementById(sectionId);
+    if (isScrolling.current || !element) return;
 
     isScrolling.current = true;
     setActiveSection(sectionId);
 
     window.scrollTo({
-      top: sections.current[sectionId].offsetTop - 80, // Adjust for navbar height
+      top: element.offsetTop - 80, // Adjust for navbar height
       behavior: 'smooth'
     });
 
@@ -172,6 +175,21 @@ function App() {
           <div className="container">
             <h2 className="section-title">Projects</h2>
             <Projects />
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="coursework"
+          ref={el => registerSection('coursework', el)}
+          className="section-padding"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <div className="container">
+            <h2 className="section-title">Coursework</h2>
+            <Coursework />
           </div>
         </motion.section>
 
