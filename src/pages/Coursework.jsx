@@ -7,6 +7,11 @@ const courses = [
   "Data Structures and Algo",
   "Software Engineering",
   "Computer Networks",
+  "Artificial Intelligence",
+  "Wireless Networks",
+  "Digital Image Processing",
+  "Internet of Things",
+  "Topics in Information Security",
   "Design of Digital Systems",
   "Operating Systems",
   "Information Security",
@@ -16,11 +21,6 @@ const courses = [
   "Compiler Design",
   "Database Systems",
   "Data Communication",
-  "Wireless Networks",
-  "Digital Image Processing",
-  "Internet of Things",
-  "Topics in Information Security",
-  "Artificial Intelligence"
 ];
 
 const Coursework = () => {
